@@ -1,0 +1,25 @@
+Python 3.6.0 |Anaconda 4.3.1 (64-bit)| (default, Dec 23 2016, 12:22:00) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> python.el: native completion setup loaded
+>>> Α = 1
+>>> Α
+1
+>>> A = 2
+>>> A == Α
+False
+>>> (A,Α)
+(2, 1)
+>>> A
+2
+>>> AAA
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'AAA' is not defined
+>>> A123
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'A123' is not defined
+>>> 123
+123
+>>> "'9'"

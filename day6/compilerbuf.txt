@@ -1,0 +1,130 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? N
+N : Dir
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? : turnR
+Command not recognised.  Type :? for help
+? :t turnR
+turnR : Dir -> Dir
+? turnR.N
+E : Dir
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? Lf.1
+Lf.1 : Tree
+? Br.3.(Lf.4).(Lf.5)
+Br.3.(Lf.4).(Lf.5) : Tree
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+?
+? inorder.(Br.3.(Lf.4).(Lf.5))
+[4, 3, 5] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? inorder.t3
+[4, 3, 5, 10, 8, 7, 9] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? inorder.t3
+[4, 3, 5, 10, 8, 7, 9] : [Int]
+? preorder.t3
+[10, 3, 4, 5, 7, 8, 9] : [Int]
+? postorder.t3
+[4, 5, 3, 8, 9, 7, 10] : [Int]
+? Lf.4
+Lf.4 : Tree
+? 
+ERROR "/home/anu/pci/winter2019/day6/ctype.gs" (line 9): Repeated definition for constructor function "Lf"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? Plus
+Plus : Exp -> Exp -> Exp
+? Lef.1
+Lef.1 : Exp
+? Plus.(Lf.1).(Lf.2)
+
+ERROR: Type error in application
+*** expression     : Plus.(Lf.1).(Lf.2)
+*** term           : Lf.2
+*** type           : Tree
+*** does not match : Exp
+
+? Plus.(Lef.1).(Lef.2)
+Plus.(Lef.1).(Lef.2) : Exp
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? :t eval
+eval : Exp -> Int
+? eval.(Plus.(Lef.1).(Lef.2))
+3 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? Imul
+Imul : Inst
+? [Ld.1,Ld.2,Imul]
+[Ld.1, Ld.2, Imul] : [Inst]
+? 
+ERROR "/home/anu/pci/winter2019/day6/ctype.gs" (line 44): Syntax error in expression (unexpected separator)
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? genCode.(Plus.(Lef.2).(Lef.3))
+[Ld.2, Ld.3, Iplus] : [Inst]
+? 
+ERROR "/home/anu/pci/winter2019/day6/ctype.gs" (line 53): Undefined variable "x"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? genCode.(Plus.(Lef.2).(Lef.3))
+[Ld.2, Ld.3, Iplus] : [Inst]
+? fsim.(genCode.(Plus.(Lef.2).(Lef.3)))
+[5] : [Int]
+? fsim'.(genCode.(Plus.(Lef.2).(Lef.3)))
+
+ERROR: Undefined variable "fsim'"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day6/ctype.gs
+? fsim'.(genCode.(Plus.(Lef.2).(Lef.3)))
+5 : Int
+? :t fsim'
+fsim' : [Inst] -> Int
+? :t eval
+eval : Exp -> Int
+? :t genCode
+genCode : Exp -> [Inst]
+? 

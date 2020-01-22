@@ -1,0 +1,57 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994 
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/rusi/gofergithub/gofer/pusimple.pre
+? [chr.(i + ord.'A') | i <- [0...4]]
+ABCDE
+? 
+Gofer session for:
+/home/rusi/gofergithub/gofer/pusimple.pre
+/home/rusi/winterschool19/mp.gs
+? alphas.[0...4]
+ABCDE
+? 
+Gofer session for:
+/home/rusi/gofergithub/gofer/pusimple.pre
+/home/rusi/winterschool19/mp.gs
+? squares.[2,4,6,8]
+[4, 16, 36, 64] : [Int]
+? heads[[3,4],[7,7],[9,3]]
+
+ERROR: Juxtaposition has no meaning. Use .
+? heads.[[3,4],[7,7],[9,3]]
+[3, 7, 9] : [Int]
+? 
+Gofer session for:
+/home/rusi/gofergithub/gofer/pusimple.pre
+/home/rusi/winterschool19/mp.gs
+? s.heads.[[1,2],[3,4]]
+
+ERROR: Type error in application
+*** expression     : s.heads.[[1,2],[3,4]]
+*** term           : heads
+*** type           : [[a]] -> [a]
+*** does not match : [Int] -> [a]
+
+? s.heads1.[[1,2],[3,4]]
+ERROR: Type error in application
+*** expression     : s.heads1.[[1,2],[3,4]]
+*** term           : heads1
+*** type           : (([b] -> b) -> a) -> a
+*** does not match : [Int] -> a
+
+? 
+? 
+Gofer session for:
+/home/rusi/gofergithub/gofer/pusimple.pre
+/home/rusi/winterschool19/mp.gs
+? s.head.[[1,2],[3,4]]
+[1, 3] : [Int]
+? s.alphas1.[1,2,3]
+BCD
+? s.squares1.[1,2,3]
+[1, 4, 9] : [Int]
+? 

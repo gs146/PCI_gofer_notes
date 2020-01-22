@@ -1,0 +1,84 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? myaccept.[1, 0, 0, 0, 0]
+True : Bool
+? myaccept.[1, 0, 0, 0, 1]
+False : Bool
+? myaccept.[1, 1]
+False : Bool
+? myaccept.[1, 1, 0, 0]
+
+Program error: {del.En.0}
+
+
+? myaccept.[1]
+True : Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? myaccept.[1, 1, 0, 0]
+False : Bool
+? 1 `elem` [1,2,3,4]
+True : Bool
+? elem.6.[1,2,3,4]
+False : Bool
+? elem.6.[1,2,3,4]
+False : Bool
+? elem.6.[1,2,3,4]
+False : Bool
+? elem.1.[1,2,3,4]
+True : Bool
+? 1 `elem` [1,2,3,4]
+True : Bool
+? 6 `elem` [1,2,3,4]
+False : Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? myaccept.[1, 1, 0, 0]
+False : Bool
+? myaccept.[1, , 0, 0]
+
+ERROR: Syntax error in expression (unexpected comma)
+? myaccept.[1 , 0, 0]
+True : Bool
+? 
+ERROR "/home/anu/pci/winter2019/day5/automata.gs" (line 19): Equations give different arities for "genaccept"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? del
+del : State -> Int -> State
+? genaccept.(del,Q0,[QF]).[1]
+True : Bool
+? genaccept.(del,Q0,[QF]).[1,0]
+True : Bool
+? genaccept.(del,Q0,[QF]).[0,1,0]
+False : Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? genaccept.(delc, Q0, [QF])."010"
+False : Bool
+? genaccept.(delc, Q0, [QF])."1"
+True : Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? :t genaccept
+genaccept : FSM.a.b -> [b] -> Bool
+? 

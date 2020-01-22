@@ -1,0 +1,79 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 
+ERROR "/home/anu/pci/winter2019/day8/reccps.gs" (line 3): Equations give different arities for "sum"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day8/reccps.gs
+? sum1.[1...5[
+
+ERROR: Syntax error in expression (unexpected end of input)
+? sum1.[1...5]
+15 : Int
+? :t sum2.[1...5]
+sum2.(enumFromTo.1.5) : Int -> Int
+? :t sum2.[1...5].0
+sum2.(enumFromTo.1.5).0 : Int
+? :t sum2.[1...5].0
+sum2.(enumFromTo.1.5).0 : Int
+? sum2.[1...5].0
+15 : Int
+? sum2.[1...5].5
+20 : Int
+? :t sum3
+ERROR: Undefined variable "sum3"
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day8/reccps.gs
+? :t sum3
+sum3 : [Int] -> (a -> Int) -> a -> Int
+? sum3.[1...5].(+0)
+((((flip.(+).0 ; v59.1) ; v59.2) ; v59.3) ; v59.4) ; v59.5 : Int -> Int
+? id.3
+3 : Int
+? id.'3'
+'3' : Char
+? sum3.[1...5].(+0)
+((((flip.(+).0 ; v59.1) ; v59.2) ; v59.3) ; v59.4) ; v59.5 : Int -> Int
+? sum3.[1...5].(+0).3
+18 : Int
+? sum3.[1...5].(const.0)
+((((const.0 ; v59.1) ; v59.2) ; v59.3) ; v59.4) ; v59.5 : a -> Int
+? sum3.[1...5].(+0).0
+15 : Int
+? show"123"
+
+ERROR: Juxtaposition has no meaning. Use .
+? show."123"
+"123"
+? 
+ERROR "/home/anu/pci/winter2019/day8/reccps.gs" (line 12): Undefined variable "xs'"
+? 
+ERROR "/home/anu/pci/winter2019/day8/reccps.gs" (line 12): Type error in application
+*** expression     : fun.x :: map1.xs
+*** term           : map1.xs
+*** type           : [b] -> [c]
+*** does not match : [a]
+
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day8/reccps.gs
+? map2.(2+).[1...5]
+map2.(2 +).(enumFromTo.1.5) : [Int] -> [Int]
+? map2.(2+).[1...5].[]
+[3, 4, 5, 6, 7] : [Int]
+? map3.(2+).[1...5].id.[]
+[3, 4, 5, 6, 7] : [Int]
+? :t map2
+map2 : (a -> b) -> [a] -> [b] -> [b]
+? :t map3
+map3 : (a -> b) -> [a] -> (c -> [b]) -> c -> [b]
+? 

@@ -1,0 +1,88 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? concat.[[1,2],[4,5]]
+[1, 2, 4, 5] : [Int]
+? 1 + 2
+3 : Int
+? (+).1. 2
+3 : Int
+? 
+ERROR "/home/anu/pci/winter2019/day4/lst.gs" (line 28): Undefined variable "a"
+? 
+ERROR "/home/anu/pci/winter2019/day4/lst.gs" (line 20): Type error in application
+*** expression     : m.x.len.xs
+*** term           : m
+*** type           : e -> Int -> Int
+*** does not match : a -> b -> c -> d
+
+? 
+ERROR "/home/anu/pci/winter2019/day4/lst.gs" (line 28): Type error in function binding
+*** term           : func
+*** type           : ([[a]],a -> b -> b,c) -> b
+*** does not match : ([a],a -> b -> b,c) -> b
+*** because        : unification would give infinite type
+
+? 
+? 1::[1,2]
+[1, 1, 2] : [Int]
+? [1::[1,2]]
+[[1, 1, 2]] : [[Int]]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day4/lst.gs
+? :t func
+func : ([a],a -> b -> b,b) -> b
+? :t (::)
+(::) : a -> [a] -> [a]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day4/lst.gs
+? s11.[[1,2],[3,4]]
+[1, 2, 3, 4] : [Int]
+? prod1.[1,2,3]
+6 : Int
+? func.([1,2,3],(::),[])
+[1, 2, 3] : [Int]
+? func.([1,2,3],(::),[5,6,7])
+[1, 2, 3, 5, 6, 7] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day4/lst.gs
+? :t func1
+func1 : ([a],b -> a -> b,b) -> b
+? :t func
+func : ([a],a -> b -> b,b) -> b
+? func.([1,2,3],(*),1)
+6 : Int
+? func1.([1,2,3],(*),1)
+6 : Int
+? func.([1,2,3],(-),0)
+2 : Int
+? func1.([1,2,3],(-),0)
+-6 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day4/lst.gs
+? func1.([1,2,3],cnsr,[])
+[1, 2, 3] : [Int]
+? func1.([1,2,3],(::),[])
+
+ERROR: Type error in application
+*** expression     : func1.([1,2,3],(::),[])
+*** term           : ([1,2,3],(::),[])
+*** type           : ([Int],a -> [a] -> [a],[a])
+*** does not match : ([[a]],[a] -> [a] -> [a],[a])
+*** because        : unification would give infinite type
+
+? func1.([3,4,-2],(-),0)
+-5 : Int
+? 

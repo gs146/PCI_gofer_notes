@@ -1,0 +1,202 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 1 + 3
+4 : Int
+? (+). 1 .3
+4 : Int
+? (1+).3
+4 : Int
+? (+3).1
+4 : Int
+? 1::[2]
+[1, 2] : [Int]
+? (1::).[2]
+[1, 2] : [Int]
+? (::[2]).1
+[1, 2] : [Int]
+? (::).1.[2]
+[1, 2] : [Int]
+? elem.1.[1,2,3]
+True : Bool
+? :t elem
+elem : a -> [a] -> Bool
+? 1 `elem` [1,2,3]
+True : Bool
+? (`elem` [1,2,3]).1
+True : Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/section.gs
+? f.2 . 3
+8 : Int
+? 2 `f` 3
+8 : Int
+? (f.2).3
+8 : Int
+? (`f`3).2
+8 : Int
+? flip.f.3 . 2
+8 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/section.gs
+? 2+-+3
+8 : Int
+?  [(i+-+j,f.i.j) | i <-[0...3],[j<-[0...3]]
+
+ERROR: Syntax error in expression (unexpected `<-')
+?  [(i+-+j,f.i.j) | i <-[0...3], j<-[0...3]]
+[(0,0), (2,2), (4,4), (6,6), (1,1), (3,3), (5,5), (7,7), (2,2), (4,4), (6,6), (8,8), (3,3), (5,5), (7,7), (9,9)] : [(Int,Int)]
+? :f fold
+ERROR: No current definition for name "fold"
+? :f foldl
+(pu-find-file "/home/anu/pugofer/pusimple.pre" 334)
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? :t accept'
+accept' : (a -> b -> a) -> [a] -> a -> [b] -> Bool
+? accept.(delc,Q0,[QF])."010"
+False : Bool
+?  accept.(delc,Q0,[QF])."10"
+True : Bool
+?  accept.delc.[QF].Q0."10"
+
+ERROR: Type error in application
+*** expression     : accept.delc.[QF].Q0."10"
+*** term           : accept
+*** type           : (f -> g -> f,f,[f]) -> [g] -> Bool
+*** does not match : a -> b -> c -> d -> e
+
+?  accept'.delc.[QF].Q0."10"
+True : Bool
+? 
+False : Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? :accept'
+Command not recognised.  Type :? for help
+? :t accept'
+accept' : (a -> b -> a) -> [a] -> a -> [b] -> Bool
+? :t accept''
+accept'' : a -> b -> Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? :t accept''
+accept'' : (a -> b -> a) -> [a] -> a -> [b] -> Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? accept''
+accept'' : (a -> b -> a) -> c -> a -> [b] -> a
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? accept''
+accept'' : (a -> b -> a) -> [a -> [b] -> a] -> Bool
+? . 3
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? :t accept''
+accept'' : (a -> b -> a) -> [a] -> a -> [b] -> Bool
+?  accept'.delc.[QF].Q0."010"
+False : Bool
+?  accept''.delc.[QF].Q0."010"
+False : Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+?  accept''.delc.[QF].Q0."010"
+False : Bool
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? foldl
+foldl : (a -> b -> a) -> a -> [b] -> a
+? foldl_
+foldl_ : (a -> b -> a) -> a -> [b] -> a
+? (\x -> 2*x).3
+6 : Int
+? f = \x -> 2*x
+
+ERROR: Syntax error in input (unexpected `=')
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/automata.gs
+? (\x -> 2*x).3
+6 : Int
+? f.3
+6 : Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/section.gs
+? lf
+[v62, v61] : [Int -> Int]
+? [f.3 | f <- lf]
+[9, 6] : [Int]
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day5/section.gs
+? [f.3 | f <- lf]
+[5, 7, 9] : [Int]
+? :t cf
+cf : Int -> Int -> Int
+? lf
+[v59.1, v59.2, v59.3] : [Int -> Int]
+? cf
+cf : Int -> Int -> Int
+? (+)
+(+) : Int -> Int -> Int
+? lf ++ [(+)]
+
+ERROR: Type error in application
+*** expression     : lf ++ [(+)]
+*** term           : lf
+*** type           : [Int -> Int]
+*** does not match : [Int -> Int -> Int]
+
+? lf ++ [(2+)]
+[v59.1, v59.2, v59.3, (2 +)] : [Int -> Int]
+? [f.3 |f <- lf ++ [(2+)]]
+[5, 7, 9, 5] : [Int]
+? lf ++ [(+)]
+ERROR: Type error in application
+*** expression     : lf ++ [(+)]
+*** term           : lf
+*** type           : [Int -> Int]
+*** does not match : [Int -> Int -> Int]
+
+? lf
+[v59.1, v59.2, v59.3] : [Int -> Int]
+? :t [1,2,3]
+[1,2,3] : [Int]
+? :t lf
+lf : [Int -> Int]
+? lf ++ [1]
+ERROR: Type error in application
+*** expression     : lf ++ [1]
+*** term           : lf
+*** type           : [Int -> Int]
+*** does not match : [Int]
+
+? 

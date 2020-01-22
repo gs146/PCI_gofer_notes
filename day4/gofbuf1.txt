@@ -1,0 +1,106 @@
+Gofer Version 2.30a
+Modifications for pugofer Rusi Mody
+Copyright (c) Mark P Jones 1991-1994
+Copyright (c) Rusi Mody 1995-2015
+
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+? 
+ERROR "/home/anu/pci/winter2019/day4/lst.gs" (line 38): Juxtaposition has no meaning. Use .
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day4/lst.gs
+? myreduce2.([[1],[2],[3]],(--),[])
+
+ERROR: Syntax error in expression (unexpected end of input)
+? myreduce2.([[1],[2],[3]],(++),[])
+[1, 2, 3] : [Int]
+? ERROR: Improperly terminated character constant
+? ? ERROR: Syntax error in input (unexpected `=')
+? ? ? ERROR: Syntax error in input (unexpected `=')
+? ? myappend : [a] -> [a] -> [a]
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in expression (unexpected end of input)
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ERROR: Syntax error in input (unexpected `=')
+? ERROR: Syntax error in input (unexpected `=')
+? ? ? ? ? ? ? ERROR: Syntax error in expression (unexpected `)')
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day4/lst.gs
+? myreduce2.([[1],[2],[3]],(++),[])
+[1, 2, 3] : [Int]
+? :t (++)
+(++) : [a] -> [a] -> [a]
+? :t (::)
+(::) : a -> [a] -> [a]
+? :t myreduce2
+myreduce2 : ([a],b -> a -> b,b) -> b
+? :t func
+func : ([a],a -> b -> b,b) -> b
+? func1.([[1],[2],[3]],(++),[]])
+
+ERROR: Syntax error in expression (unexpected `]')
+? func1.([[1],[2],[3]],(++),[])
+[3, 2, 1] : [Int]
+? myreduce2.([[1],[2],[3]],(++),[])
+[1, 2, 3] : [Int]
+? func.([[1],[2],[3]],(++),[])
+[1, 2, 3] : [Int]
+? func.([[1],[2],[3]],(::),[])
+[[1], [2], [3]] : [[Int]]
+? myreduce2.([[1],[2],[3]],(::),[])
+ERROR: Type error in application
+*** expression     : myreduce2.([[1],[2],[3]],(::),[])
+*** term           : ([[1],[2],[3]],(::),[])
+*** type           : ([[Int]],a -> [a] -> [a],[a])
+*** does not match : ([[a]],[a] -> [a] -> [a],[a])
+*** because        : unification would give infinite type
+
+? :t myreduce2
+myreduce2 : ([a],b -> a -> b,b) -> b
+? myreduce2.([[1],[2],[3]],(cnsr),[])
+[[3], [2], [1]] : [[Int]]
+? myreduce2.([1,2,3],(cnsr),[])
+[3, 2, 1] : [Int]
+? reverse.[1,2,3,4]
+[4, 3, 2, 1] : [Int]
+? :f foldr
+(pu-find-file "/home/anu/pugofer/pusimple.pre" 358)
+? :t myadd
+myadd : (Int,Int) -> Int
+? :(+)
+Command not recognised.  Type :? for help
+? :t (+)
+(+) : Int -> Int -> Int
+? 
+Gofer session for:
+/home/anu/pugofer/pusimple.pre
+/home/anu/pci/winter2019/day4/lst.gs
+? :t ss
+ss : ((a,b) -> c) -> a -> b -> c
+? :t curry
+curry : ((a,b) -> c) -> a -> b -> c
+? :f curry
+(pu-find-file "/home/anu/pugofer/pusimple.pre" 56)
+? foldr.(+).3
+foldr.(+).3 : [Int] -> Int
+? 
